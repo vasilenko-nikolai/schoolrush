@@ -3,8 +3,15 @@ name = "app-template"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
-requires-python = ">=3.11"
-dependencies = []
+requires-python = ">=3.13"
+dependencies = [
+    "alembic>=1.18.4",
+    "asyncpg>=0.31.0",
+    "fastapi-users[sqlalchemy]>=15.0.4",
+    "psycopg2-binary>=2.9.11",
+    "pydantic-settings>=2.13.0",
+    "sqlalchemy>=2.0.46",
+]
 packages = [{include = "app"}]
 
 [dependency-groups]

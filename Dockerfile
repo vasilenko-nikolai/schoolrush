@@ -1,13 +1,13 @@
-FROM python:3.11-slim
-
-COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
+FROM python:3.13-slim
 
 WORKDIR /app
 
-COPY pyproject.toml uv.lock .python-version README.md ./
+COPY requirements.txt .
 
-RUN uv sync
+RUN pip install -r requirements.txt
 
 COPY . .
 
-CMD ["python", "-m", "app.main"]
+RUN alembic upgrade head
+
+CMD ["python", "-m", "app.apps.server.app"]
