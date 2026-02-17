@@ -8,6 +8,4 @@ RUN pip install -r requirements.txt
 
 COPY . .
 
-RUN alembic upgrade head
-
 CMD ["python", "-m", "app.apps.server.app"]
